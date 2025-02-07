@@ -5,8 +5,7 @@ import { cn } from "@/lib/utils";
 type ProjectCardProps = {
   title: string;
   description: string;
-  metrics: string;
-  //   techs: string[];
+  metrics: string | null;
   link: string[] | null;
   disclaimer: string | null;
   linkadditionalText?: string;
@@ -41,10 +40,12 @@ export const ProjectCard = (props: ProjectCardProps) => {
             </p>
           )}
         </div>
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold mb-2">Key Metrics</h4>
-          <p className="text-sm text-muted-foreground">{metrics}</p>
-        </div>
+        {metrics && (
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold mb-2">Key Metrics</h4>
+            <p className="text-sm text-muted-foreground">{metrics}</p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

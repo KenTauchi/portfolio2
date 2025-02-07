@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { skills, projects } from "@/data";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { TypingText } from "@/components/typing-text";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +58,7 @@ const Home = () => {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <Button variant="ghost" asChild>
-                      <NavigationMenuLink href="#achievements">Achievements</NavigationMenuLink>
+                      <NavigationMenuLink href="#achievements">Projects</NavigationMenuLink>
                     </Button>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
@@ -90,7 +92,7 @@ const Home = () => {
                   <a href="#about">About</a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start">
-                  <a href="#achievements">Achievements</a>
+                  <a href="#achievements">Projects</a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start">
                   <a href="#skills">Skills</a>
@@ -104,7 +106,6 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -154,6 +155,55 @@ const Home = () => {
         <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black via-black/50 to-black/40"></div>
       </motion.section>
 
+      {/* About me section */}
+      <motion.section
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={staggerContainer}
+        id="about"
+        className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 flex flex-col items-center gap-4 scroll-mt-20"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className="text-3xl font-bold tracking-tighter text-center mb-12 "
+        >
+          About Me
+        </motion.h2>
+        <div className="relative w-64 h-64 md:w-[300px] md:h-[300px]">
+          <div className="absolute inset-1 rounded-full overflow-hidden">
+            <Image
+              src="/profile.jpg"
+              width={400}
+              height={400}
+              alt="Profile Picture"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div
+            className="absolute inset-0 rounded-full"
+            style={{
+              backgroundImage: `radial-gradient(
+                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 0),
+                  black,
+                  black
+                )`,
+            }}
+          />
+        </div>
+        <TypingText
+          className=" md:text-xl"
+          speed={0.02}
+          text="A React frontend developer with extensive experience in React and TypeScript, proven in
+          deliveringcomplex applications in dynamic, fast-paced environments.Strong track record in
+          client-facing rolesand collaborative projects, combining technical expertise with
+          effective communication skills.Committed to continuous learning and expanding technical
+          capabilities through self-directed studyand peer collaboration."
+        />
+      </motion.section>
+
       {/* Project Section */}
       <motion.section
         initial="initial"
@@ -161,7 +211,7 @@ const Home = () => {
         viewport={{ once: false, amount: 0.2 }}
         variants={staggerContainer}
         id="achievements"
-        className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20"
+        className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 scroll-mt-20"
       >
         <motion.h2
           variants={fadeInUp}
@@ -173,21 +223,42 @@ const Home = () => {
           {projects.map((project, index) => (
             <motion.div key={index} variants={fadeInUp}>
               {project.src ? (
-                <HoverCard openDelay={200}>
-                  <HoverCardTrigger>
-                    <ProjectCard {...project} />
-                  </HoverCardTrigger>
-                  <HoverCardContent className="min-w-[360px] bg-black">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      className="w-full h-full object-cover top-0 left-0 z-1 object-cover"
-                    >
-                      <source src={project.src} type="video/mp4" />
-                    </video>
-                  </HoverCardContent>
-                </HoverCard>
+                <>
+                  <div className="block md:hidden">
+                    <Popover>
+                      <PopoverTrigger>
+                        <ProjectCard {...project} />
+                      </PopoverTrigger>
+                      <PopoverContent className="min-w-[360px] bg-black">
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          className="w-full h-full object-cover top-0 left-0 z-1 object-cover"
+                        >
+                          <source src={project.src} type="video/mp4" />
+                        </video>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  <div className="hidden md:block">
+                    <HoverCard openDelay={10}>
+                      <HoverCardTrigger>
+                        <ProjectCard {...project} />
+                      </HoverCardTrigger>
+                      <HoverCardContent className="min-w-[360px] bg-black">
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          className="w-full h-full object-cover top-0 left-0 z-1 object-cover"
+                        >
+                          <source src={project.src} type="video/mp4" />
+                        </video>
+                      </HoverCardContent>
+                    </HoverCard>
+                  </div>
+                </>
               ) : (
                 <ProjectCard {...project} className="cursor-default" />
               )}

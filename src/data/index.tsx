@@ -40,7 +40,7 @@ const projects = [
     title: "Project Websites",
     description:
       "Developed and maintained multiple project websites with integrated inquiry system.",
-    metrics: "",
+    metrics: null,
     link: [
       "https://www.concordbrentwood.com/oasis",
       "https://concordpiano.ca/",
