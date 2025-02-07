@@ -1,20 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AchievementCard } from "@/components/achivement-card";
 import { ProjectCard } from "@/components/project-card";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { skills, achievements, projects } from "@/data";
+import { skills, projects } from "@/data";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const Home = () => {
@@ -124,7 +122,7 @@ const Home = () => {
         </video>
 
         <div className="absolute z-10 w-half object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[80%]">
-          <img src="ken_logo.svg" alt="logo" className="w-full block" />
+          <Image src="ken_logo.svg" alt="logo" width={200} height={200} className="w-full block" />
         </div>
 
         <div className="text-center z-10 absolute w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[-10%] px-4">
