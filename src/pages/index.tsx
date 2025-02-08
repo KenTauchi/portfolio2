@@ -45,16 +45,16 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Ken Tauchi - Frontend Developer</title>
+        <title>Ken Tauchi - Software Developer</title>
         <meta name="description" content="Portfolio Website" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Ken Tauchi - Frontend Developer" />
+        <meta property="og:title" content="Ken Tauchi - Software Developer" />
         <meta property="og:description" content="Portfolio Website" />
         <meta property="og:image" content="https://www.kentauchi.com/og/profile.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ken Tauchi - Frontend Developer" />
+        <meta name="twitter:title" content="Ken Tauchi - Software Developer" />
         <meta name="twitter:description" content="Portfolio Website" />
         <meta name="twitter:image" content="https://www.kentauchi.com/og/profile.jpg" />
       </Head>
@@ -218,7 +218,7 @@ const Home = () => {
           <TypingText
             className=" md:text-xl"
             speed={0.02}
-            text="A React frontend developer with extensive experience in React and TypeScript, proven in
+            text="A React Software Developer with extensive experience in React and TypeScript, proven in
           deliveringcomplex applications in dynamic, fast-paced environments.Strong track record in
           client-facing rolesand collaborative projects, combining technical expertise with
           effective communication skills.Committed to continuous learning and expanding technical
