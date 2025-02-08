@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: "Listing Platform",
+    title: "Liv.rent - Listing Platform",
     description:
       "Real estate rental platform that aims to streamline the rental process for both renters and landlords. It provides tools to help renters find verified listings, apply for apartments, sign digital contracts, and pay rent online.",
     techs: ["React", "Next.js", "TypeScript", "React Query", "Redux", "Jest", "Design System"],
