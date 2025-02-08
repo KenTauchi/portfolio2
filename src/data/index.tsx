@@ -12,8 +12,8 @@ const projects = [
   {
     title: "Design System Development",
     description:
-      "Architected and maintained a comprehensive component library used across multiple enterprise applications. Reduced development time for new features by 60%.",
-    metrics: "50% faster feature development within tech team",
+      "Architected and maintained a comprehensive component library used across multiple enterprise applications. Drastically reduced development time for new features.",
+    metrics: "Faster feature development within tech team",
     link: null,
     disclaimer: "* Link is undisclosed due to company policy",
     src: null,
@@ -40,7 +40,7 @@ const projects = [
     title: "Project Websites",
     description:
       "Developed and maintained multiple project websites with integrated inquiry system.",
-    metrics: null,
+    metrics: "Helped client connect with potential clients",
     link: [
       "https://www.concordbrentwood.com/oasis",
       "https://concordpiano.ca/",
