@@ -8,12 +8,13 @@ type ProjectCardProps = {
   metrics: string | null;
   link: string[] | null;
   disclaimer: string | null;
-  linkadditionalText?: string;
+  linkAdditionalText?: string;
   className?: string;
 };
 
 export const ProjectCard = (props: ProjectCardProps) => {
-  const { title, description, metrics, link, disclaimer, linkadditionalText, className } = props;
+  const { title, description, metrics, link, disclaimer, linkAdditionalText, className } = props;
+
   return (
     <Card className={cn("min-h-[300px] flex flex-col cursor-pointer", className)}>
       <CardHeader>
@@ -21,7 +22,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 flex flex-row gap-2">
+        <div className="mb-4 flex flex-row gap-2 items-end">
           {link ? (
             link.map((link, index) => (
               <a
@@ -35,10 +36,10 @@ export const ProjectCard = (props: ProjectCardProps) => {
               </a>
             ))
           ) : (
-            <p className="text-xs text-muted-foreground">
-              {disclaimer} {linkadditionalText && linkadditionalText}
-            </p>
+            <p className="text-xs text-muted-foreground">{disclaimer}</p>
           )}
+
+          {linkAdditionalText && <p className="text-sm">{linkAdditionalText}</p>}
         </div>
         {metrics && (
           <div className="mb-4">

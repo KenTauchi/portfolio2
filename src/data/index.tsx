@@ -40,7 +40,8 @@ const projects = [
     title: "Project Websites",
     description:
       "Developed and maintained multiple project websites with integrated inquiry system.",
-    metrics: "Helped client connect with potential clients",
+    metrics:
+      "Helped client connect with potential clients by connecting the form to the CRM system",
     link: [
       "https://www.concordbrentwood.com/oasis",
       "https://concordpiano.ca/",
@@ -48,7 +49,7 @@ const projects = [
       "https://w1.place/",
       "https://concordmetrotown.com/",
     ],
-    linkAdditionalText: "and more.",
+    linkAdditionalText: "and more...",
     disclaimer: "* Link is undisclosed due to company policy",
     src: "brentwood.mp4",
   },
