@@ -62,7 +62,7 @@ const Home = () => {
         <nav className="sticky top-0 z-50 w-full border-b bg-black md:bg-background/95 md:backdrop-blur md:supports-[backdrop-filter]:bg-background/60">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
-              <div className="text-xl font-bold">Frontend Dev</div>
+              <div className="text-xl font-bold">Software Developer</div>
 
               <div className="hidden md:flex">
                 <NavigationMenu>

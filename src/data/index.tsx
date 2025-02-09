@@ -58,7 +58,7 @@ const achievements = [
   {
     title: "Frontend Architecture & Performance",
     description:
-      "Led frontend development for high-traffic web applications serving 100K+ daily active users. Implemented performance optimizations reducing load time by 40%.",
+      "Led Software Developerelopment for high-traffic web applications serving 100K+ daily active users. Implemented performance optimizations reducing load time by 40%.",
     techs: ["React", "Redux", "TypeScript", "Webpack"],
     metrics: "40% faster load times, 99.9% uptime",
   },
