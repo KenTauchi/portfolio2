@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X, Download, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -307,14 +307,26 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {skills.map((skillGroup, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="min-h-[170px]">
-                  <CardHeader>
-                    <CardTitle>{skillGroup.category}</CardTitle>
+                <Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg border-transparent hover:border-blue-100 min-h-[180px]">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500/40 to-purple-500/40 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
+
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-2">
+                      {<Code2 className="w-5 h-5 text-blue-500" />}
+                      <CardTitle className="text-lg font-semibold flex items-center gap-2 group-hover:text-blue-600 transition-colors">
+                        {skillGroup.category}
+                      </CardTitle>
+                    </div>
                   </CardHeader>
+
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="outline">
+                      {skillGroup.items.map((skill, index) => (
+                        <Badge
+                          key={index}
+                          variant="secondary"
+                          className="bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 transition-colors duration-200 px-3 py-1 font-semibold"
+                        >
                           {skill}
                         </Badge>
                       ))}
