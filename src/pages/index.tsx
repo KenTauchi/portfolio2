@@ -138,7 +138,7 @@ const Home = () => {
             <source src="hero_video.mp4" type="video/mp4" />
           </video>
 
-          <div className="absolute z-10 w-half object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[80%] w-[300px] h-[300px]">
+          <div className="absolute z-10 w-half object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[100%] w-[200px] md:w-[300px] h-[200px] md:h-[300px]">
             <Image
               src="ken_logo.svg"
               alt="logo"
@@ -148,7 +148,7 @@ const Home = () => {
             />
           </div>
 
-          <div className="text-center z-10 absolute w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[-10%] px-4">
+          <div className="text-center z-10 absolute w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[0%] md:-translate-y-[-10%] px-4">
             <p className="mx-auto mt-4 max-w-[700px] text-white text-xl">
               Specializing in high-performance React applications and scalable frontend architecture
             </p>
