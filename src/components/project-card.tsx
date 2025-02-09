@@ -37,7 +37,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
       <CardHeader className="space-y-4">
         <div className="space-y-2">
           <CardTitle
-            className="flex items-center justify-between group-hover:text-blue-500 transition-colors"
+            className="flex items-center justify-between group-hover:text-blue-500 transition-colors cursor-pointer"
             onClick={() => {
               window.open(link?.[0], "_blank");
             }}
