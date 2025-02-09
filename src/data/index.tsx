@@ -81,7 +81,16 @@ const achievements = [
 const skills = [
   {
     category: "Core Framework & Languages",
-    items: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3"],
+    items: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "React Native",
+      "HTML5",
+      "CSS3",
+    ],
   },
   {
     category: "Styling Solutions",
@@ -97,19 +106,19 @@ const skills = [
   },
   {
     category: "State Management",
-    items: ["React Context", "Redux Toolkit", "React Query / TanStack Query"],
+    items: ["React Context", "Redux", "React Query / TanStack Query"],
   },
   {
     category: "Testing",
-    items: ["Jest", "React Testing Library", "Cypress", "Vitest"],
+    items: ["Vitest", "React Testing Library", "Jest", "Cypress"],
   },
   {
     category: "Deployment & Hosting",
-    items: ["Vercel", "Netlify", "AWS", "Docker"],
+    items: ["AWS", "Vercel", "Netlify", "Docker"],
   },
   {
-    category: "UI/UX Tools",
-    items: ["Storybook", "Figma", "Webflow"],
+    category: "And more...",
+    items: ["Graphql", "Postgresql", "MySQL", "Mongo DB", "Node.js", "Express.js"],
   },
 ];
 
