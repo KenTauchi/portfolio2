@@ -58,7 +58,7 @@ const Home = () => {
         <meta name="twitter:description" content="Portfolio Website" />
         <meta name="twitter:image" content="https://www.kentauchi.com/og/profile.jpg" />
       </Head>
-      <div className="min-h-screen bg-black ">
+      <div className="min-h-screen bg-black text-white">
         <nav className="sticky top-0 z-50 w-full border-b bg-black md:bg-background/95 md:backdrop-blur md:supports-[backdrop-filter]:bg-background/60">
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
