@@ -16,13 +16,13 @@ export const ProjectCard = (props: ProjectCardProps) => {
   const { title, description, metrics, link, disclaimer, linkAdditionalText, className } = props;
 
   return (
-    <Card className={cn("min-h-[300px] flex flex-col cursor-pointer", className)}>
+    <Card className={cn("min-h-[300px] flex flex-col cursor-pointer text-left", className)}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 flex flex-row gap-2 items-end">
+        <div className="mb-4 flex flex-row gap-2 items-end flex-wrap">
           {link ? (
             link.map((link, index) => (
               <a
