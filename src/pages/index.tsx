@@ -14,7 +14,6 @@ import {
 import { skills, projects } from "@/data";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { TypingText } from "@/components/typing-text";
 import { TechCard } from "@/components/tech-card";
 import Head from "next/head";
 import TestimonialSlider from "@/components/testimonial";
