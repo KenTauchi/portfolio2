@@ -232,15 +232,18 @@ const Home = () => {
           whileInView="animate"
           viewport={{ once: false, amount: 0.2 }}
           variants={staggerContainer}
-          id="achievements"
-          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 scroll-mt-20"
+          id="projects"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20"
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-3xl font-bold tracking-tighter text-center mb-12"
+            className="text-3xl font-bold tracking-tighter text-center mb-6"
           >
             Projects
           </motion.h2>
+          <motion.p variants={fadeInUp} className="text-center mb-12">
+            * A selection of featured projects. For more information, please contact me.
+          </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
@@ -249,7 +252,7 @@ const Home = () => {
                     <div className="block md:hidden">
                       <Popover>
                         <PopoverTrigger>
-                          <ProjectCard {...project} />
+                          <ProjectCard {...project} className="text-left" />
                         </PopoverTrigger>
                         <PopoverContent className="min-w-[360px] bg-black">
                           <video
@@ -266,7 +269,7 @@ const Home = () => {
                     <div className="hidden md:block">
                       <HoverCard openDelay={10}>
                         <HoverCardTrigger>
-                          <ProjectCard {...project} />
+                          <ProjectCard {...project} className="text-left" />
                         </HoverCardTrigger>
                         <HoverCardContent className="min-w-[360px] bg-black">
                           <video
@@ -295,7 +298,7 @@ const Home = () => {
           viewport={{ once: false, amount: 0.2 }}
           variants={staggerContainer}
           id="skills"
-          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20"
         >
           <motion.h2
             variants={fadeInUp}
@@ -318,7 +321,7 @@ const Home = () => {
           viewport={{ once: false, amount: 0.5 }}
           variants={fadeInUp}
           id="testimonials"
-          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20"
         >
           <motion.h2
             variants={fadeInUp}
@@ -337,7 +340,7 @@ const Home = () => {
           viewport={{ once: false, amount: 0.5 }}
           variants={fadeInUp}
           id="contact"
-          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20"
         >
           <motion.h2
             variants={fadeInUp}
