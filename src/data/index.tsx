@@ -112,6 +112,14 @@ const skills = [
 const testimonials = [
   {
     id: 1,
+    name: "Tyler Yan",
+    role: "Project Manager",
+    message:
+      "Ken really stood out on our team for his rapid advancement and eagerness to tackle new challenges. He pushed for better testing and strong design systems, significantly improving our codebase and the overall product. Incredibly reliable, Ken was our go-to person when things were on fire. His initiative not only enhanced our workflows but also brought great value to our projects. Any team would be incredibly lucky to have him on board.",
+    image: "/tyler_linkedin.jpeg",
+  },
+  {
+    id: 2,
     name: "Otavio Augusto",
     role: "Senior Software Developer",
     message:

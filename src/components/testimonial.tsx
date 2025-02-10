@@ -24,7 +24,7 @@ const TestimonialSlider = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-[70%] ">
+              <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-[50%] ">
                 <Card className="border border-purple-900/50 bg-black/40 backdrop-blur-lg hover:bg-black/60 transition-all duration-300  h-full">
                   <CardContent className="p-6">
                     <div className="flex flex-col items-center space-y-6 relative">
