@@ -167,7 +167,7 @@ const Home = () => {
               </Button>
             </div>
             <a
-              href="resume.pdf"
+              href="Resume-KenTauchi.pdf"
               download={"Resume-KenTauchi.pdf"}
               className="inline-flex items-center gap-2 px-4 py-2 text-white mt-4"
             >
