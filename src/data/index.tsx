@@ -140,6 +140,13 @@ const testimonials = [
       "I had a pleasure of supervising Ken in two web development projects. Ken has got lots of get up and go. He has lead the development team as a lead developer by setting an example for being quick to adapt to new technology and also for offering to help anytime. He is a resourceful fast learner with a passion for learning and willingness to explore new technology. Ken would be a great asset to any team.",
     image: "/tomoko-linkedin.jpeg",
   },
+  {
+    id: 3,
+    name: "",
+    role: "",
+    message: "More testimonials are coming soon... Stay tuned!",
+    image: "/ken_logo.svg",
+  },
 ];
 
 export { skills, achievements, projects, testimonials };

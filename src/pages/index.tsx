@@ -312,26 +312,24 @@ const Home = () => {
           </div>
         </motion.section>
 
-        <div className="hidden">
-          <motion.section
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: false, amount: 0.5 }}
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={fadeInUp}
+          id="testimonials"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+        >
+          <motion.h2
             variants={fadeInUp}
-            id="testimonials"
-            className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+            className="text-3xl font-bold tracking-tighter text-center mb-12"
           >
-            <motion.h2
-              variants={fadeInUp}
-              className="text-3xl font-bold tracking-tighter text-center mb-12"
-            >
-              Testimonials
-            </motion.h2>
-            <motion.div variants={fadeInUp} className="flex justify-center space-x-8">
-              <TestimonialSlider />
-            </motion.div>
-          </motion.section>
-        </div>
+            Testimonials
+          </motion.h2>
+          <motion.div variants={fadeInUp} className="flex justify-center space-x-8">
+            <TestimonialSlider />
+          </motion.div>
+        </motion.section>
 
         <motion.section
           initial="initial"
