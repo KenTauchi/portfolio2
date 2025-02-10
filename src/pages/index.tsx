@@ -160,7 +160,7 @@ const Home = () => {
                 size="lg"
                 className="bg-white text-black opacity-80 hover:opacity-100 hover:bg-white hover:text-black"
               >
-                <a href="#achievements">View Projects</a>
+                <a href="#projects">View Projects</a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#contact">Contact Me</a>

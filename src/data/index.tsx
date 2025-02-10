@@ -135,4 +135,4 @@ const testimonials = [
   },
 ];
 
-export { skills, achievements, projects, testimonials };
+export { skills, projects, testimonials };
