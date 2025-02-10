@@ -112,11 +112,11 @@ const skills = [
 const testimonials = [
   {
     id: 1,
-    name: "Hiteshri Nanda",
-    role: "UI/UX & Visual Designer",
+    name: "Otavio Augusto",
+    role: "Senior Software Developer",
     message:
-      "On all the 3 projects that I have worked with Ken, I’ve observed that he is very focused and diligent towards his work. He is someone we can rely on and specially as a designer I know he would code and deliver any tricky design exactly like the mock-up! He works very well in a team.",
-    image: "/hiteshri-linkedin.jpeg",
+      "I had the privilege of working closely with Ken as his technical lead, and I was consistently impressed by his exceptional growth mindset. His ability to rapidly absorb new information and immediately apply it in his work sets him apart from other developers. Ken has an incredible talent for turning every code review discussion, architecture meeting, or pair programming session into an opportunity to expand his knowledge. What particularly stood out was his commitment to test-driven development - he naturally embraced automated testing to guide his implementation, resulting in robust and maintainable code. His hunger for learning, combined with disciplined engineering practices and collaborative spirit, made him a force multiplier for our team. Any engineering organization would be fortunate to have Ken drive their technical excellence through his continuous learning approach and solid development practices.",
+    image: "/otavio-linkedin.jpeg",
   },
   {
     id: 2,
@@ -128,10 +128,11 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "",
-    role: "",
-    message: "More testimonials are coming soon... Stay tuned!",
-    image: "/ken_logo.svg",
+    name: "Hiteshri Nanda",
+    role: "UI/UX & Visual Designer",
+    message:
+      "On all the 3 projects that I have worked with Ken, I’ve observed that he is very focused and diligent towards his work. He is someone we can rely on and specially as a designer I know he would code and deliver any tricky design exactly like the mock-up! He works very well in a team.",
+    image: "/hiteshri-linkedin.jpeg",
   },
 ];
 
