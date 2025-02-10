@@ -53,29 +53,15 @@ const projects = [
     disclaimer: "* Link is undisclosed due to company policy",
     src: "brentwood.mp4",
   },
-];
+  {
+    title: "College Campaign Website",
+    description: "Developed and maintained the Langara College website leveraging Headless CMS.",
+    metrics:
+      "Drove increased demand for website creation across multiple departments at Langara College.",
+    link: ["https://langara-app.ca/"],
 
-const achievements = [
-  {
-    title: "Frontend Architecture & Performance",
-    description:
-      "Led Software Developerelopment for high-traffic web applications serving 100K+ daily active users. Implemented performance optimizations reducing load time by 40%.",
-    techs: ["React", "Redux", "TypeScript", "Webpack"],
-    metrics: "40% faster load times, 99.9% uptime",
-  },
-  {
-    title: "Design System Development",
-    description:
-      "Architected and maintained a comprehensive component library used across multiple enterprise applications. Reduced development time for new features by 60%.",
-    techs: ["React", "TypeScript", "Vanilla Extract CSS", "Storybook", "Jest"],
-    metrics: "60% faster feature development",
-  },
-  {
-    title: "Data Visualization & Real-time Updates",
-    description:
-      "Built complex dashboard interfaces handling real-time data streams with 1M+ daily events. Implemented efficient rendering patterns for large datasets.",
-    techs: ["D3.js", "WebSocket", "Redux-Saga", "React Query"],
-    metrics: "Handling 1M+ daily events",
+    disclaimer: null,
+    src: "langara_app.mp4",
   },
 ];
 
