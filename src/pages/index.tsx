@@ -151,28 +151,63 @@ const Home = () => {
           </div>
 
           <div className="text-center z-10 absolute w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[0%] md:-translate-y-[-10%] px-4">
-            <p className="mx-auto mt-4 max-w-[700px] text-white text-xl">
-              Specializing in high-performance React applications and scalable frontend architecture
-            </p>
-            <div className="mt-8 px-4 flex justify-center gap-6 md:gap-4 flex-col md:flex-row m">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-black opacity-80 hover:opacity-100 hover:bg-white hover:text-black"
-              >
-                <a href="#projects">View Projects</a>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="#contact">Contact Me</a>
-              </Button>
+            <div className="relative inline-block">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-xl opacity-75" />
+              <p className="relative mx-auto mt-4 max-w-[700px] text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-pink-200 text-2xl font-semibold leading-relaxed">
+                Specializing in high-performance React applications and scalable frontend
+                architecture
+              </p>
             </div>
+
+            <div className="relative mt-12 inline-block">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-md rounded-lg" />
+              <div className="relative px-4 py-2 rounded-lg">
+                <div className="flex justify-center gap-6 md:gap-8 flex-col md:flex-row">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="relative group bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  >
+                    <a href="#projects" className="flex items-center gap-2">
+                      <span className="relative">
+                        View Projects
+                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+                      </span>
+                    </a>
+                  </Button>
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="relative group border-purple-500/50 text-purple-300 hover:text-purple-200 hover:bg-purple-900/20 hover:border-purple-400 transition-all duration-300"
+                  >
+                    <a href="#contact" className="flex items-center gap-2">
+                      <span className="relative">
+                        Contact Me
+                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+                      </span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
             <a
               href="Resume-KenTauchi.pdf"
               download={"Resume-KenTauchi.pdf"}
-              className="inline-flex items-center gap-2 px-4 py-2 text-white mt-4"
+              className="relative inline-flex items-center gap-2 px-6 py-3 mt-8 text-gray-300 hover:text-purple-300 transition-colors group"
             >
-              <Download size={20} />
-              <span>Download Resume</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:via-purple-500/20 group-hover:to-pink-500/10 transition-all duration-300 rounded-lg blur-sm" />
+
+              <Download
+                size={20}
+                className="text-purple-400 group-hover:text-purple-300 transition-colors"
+              />
+              <span className="relative">
+                Download Resume
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+              </span>
             </a>
           </div>
 
@@ -218,7 +253,6 @@ const Home = () => {
           </div>
           <div className="relative max-w-3xl">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-lg opacity-75" />
-
             <div className="relative p-6 bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-lg">
               <p className="text-xl leading-relaxed text-gray-300 space-y-2">
                 A{" "}
