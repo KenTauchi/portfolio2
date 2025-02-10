@@ -179,7 +179,6 @@ const Home = () => {
           <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black via-black/50 to-black/40"></div>
         </motion.section>
 
-        {/* About me section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -228,7 +227,6 @@ const Home = () => {
           />
         </motion.section>
 
-        {/* Project Section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -291,7 +289,6 @@ const Home = () => {
           </div>
         </motion.section>
 
-        {/* Skills Section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -315,26 +312,27 @@ const Home = () => {
           </div>
         </motion.section>
 
-        <motion.section
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: false, amount: 0.5 }}
-          variants={fadeInUp}
-          id="testimonials"
-          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
-        >
-          <motion.h2
+        <div className="hidden">
+          <motion.section
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: false, amount: 0.5 }}
             variants={fadeInUp}
-            className="text-3xl font-bold tracking-tighter text-center mb-12"
+            id="testimonials"
+            className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
           >
-            Testimonials
-          </motion.h2>
-          <motion.div variants={fadeInUp} className="flex justify-center space-x-8">
-            <TestimonialSlider />
-          </motion.div>
-        </motion.section>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-3xl font-bold tracking-tighter text-center mb-12"
+            >
+              Testimonials
+            </motion.h2>
+            <motion.div variants={fadeInUp} className="flex justify-center space-x-8">
+              <TestimonialSlider />
+            </motion.div>
+          </motion.section>
+        </div>
 
-        {/* Contact Section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -372,7 +370,6 @@ const Home = () => {
           </motion.div>
         </motion.section>
 
-        {/* Footer */}
         <motion.footer
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

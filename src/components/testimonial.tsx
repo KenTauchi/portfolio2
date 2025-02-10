@@ -56,11 +56,11 @@ const TestimonialSlider = () => {
 
                       <p className="text-center text-gray-300 italic leading-relaxed relative">
                         <span className="text-purple-500 text-2xl font-serif absolute -left-2">
-                          `&quot;`
+                          &quot;
                         </span>
                         {testimonial.message}
                         <span className="text-purple-500 text-2xl font-serif absolute -right-2">
-                          `&quot;`
+                          &quot;
                         </span>
                       </p>
                     </div>
