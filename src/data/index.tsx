@@ -123,4 +123,23 @@ const skills = [
   },
 ];
 
-export { skills, achievements, projects };
+const testimonials = [
+  {
+    id: 1,
+    name: "Hiteshri Nanda",
+    role: "UI/UX & Visual Designer",
+    message:
+      "On all the 3 projects that I have worked with Ken, I’ve observed that he is very focused and diligent towards his work. He is someone we can rely on and specially as a designer I know he would code and deliver any tricky design exactly like the mock-up! He works very well in a team.",
+    image: "/hiteshri-linkedin.jpeg",
+  },
+  {
+    id: 2,
+    name: "Tomoko Okochi",
+    role: "Project Manager",
+    message:
+      "I had a pleasure of supervising Ken in two web development projects. Ken has got lots of get up and go. He has lead the development team as a lead developer by setting an example for being quick to adapt to new technology and also for offering to help anytime. He is a resourceful fast learner with a passion for learning and willingness to explore new technology. Ken would be a great asset to any team.",
+    image: "/tomoko-linkedin.jpeg",
+  },
+];
+
+export { skills, achievements, projects, testimonials };

@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Github, Linkedin, Mail, Menu, X, Download, Code2 } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+
 import { ProjectCard } from "@/components/project-card";
 import {
   NavigationMenu,
@@ -16,7 +15,9 @@ import { skills, projects } from "@/data";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TypingText } from "@/components/typing-text";
+import { TechCard } from "@/components/tech-card";
 import Head from "next/head";
+import TestimonialSlider from "@/components/testimonial";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,63 +60,64 @@ const Home = () => {
         <meta name="twitter:image" content="https://www.kentauchi.com/og/profile.jpg" />
       </Head>
       <div className="min-h-screen bg-black text-white">
-        <nav className="sticky top-0 z-50 w-full border-b bg-black md:bg-background/95 md:backdrop-blur md:supports-[backdrop-filter]:bg-background/60">
-          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="sticky top-0 z-50 w-full border-b border-purple-500/20 bg-black">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-pink-900/10" />
+
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="flex h-16 items-center justify-between">
-              <div className="text-xl font-bold">Software Developer</div>
+              <div className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Software Developer
+              </div>
 
               <div className="hidden md:flex">
                 <NavigationMenu>
                   <NavigationMenuList className="gap-6">
-                    <NavigationMenuItem>
-                      <Button variant="ghost" asChild>
-                        <NavigationMenuLink href="#about">About</NavigationMenuLink>
-                      </Button>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                      <Button variant="ghost" asChild>
-                        <NavigationMenuLink href="#achievements">Projects</NavigationMenuLink>
-                      </Button>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                      <Button variant="ghost" asChild>
-                        <NavigationMenuLink href="#skills">Skills</NavigationMenuLink>
-                      </Button>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                      <Button variant="ghost" asChild>
-                        <NavigationMenuLink href="#contact">Contact</NavigationMenuLink>
-                      </Button>
-                    </NavigationMenuItem>
+                    {["About", "Projects", "Skills", "Testimonials", "Contact"].map((item) => (
+                      <NavigationMenuItem key={item}>
+                        <Button
+                          variant="ghost"
+                          asChild
+                          className="relative text-gray-300 transition-all duration-300
+                        hover:text-purple-300 hover:bg-purple-900/20
+                        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 
+                        after:bg-gradient-to-r after:from-purple-400 after:to-pink-400 
+                        after:transition-all after:duration-300 hover:after:w-full"
+                        >
+                          <NavigationMenuLink href={`#${item.toLowerCase()}`}>
+                            {item}
+                          </NavigationMenuLink>
+                        </Button>
+                      </NavigationMenuItem>
+                    ))}
                   </NavigationMenuList>
                 </NavigationMenu>
               </div>
 
               <Button
                 variant="ghost"
-                className="md:hidden"
+                className="md:hidden text-purple-400 hover:text-purple-300 hover:bg-purple-900/20"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
 
-            {/* Mobile menu */}
             {isMenuOpen && (
-              <div className="md:hidden py-4">
+              <div className="md:hidden py-4 relative bg-black/95">
                 <div className="flex flex-col space-y-4">
-                  <Button variant="ghost" asChild className="justify-start">
-                    <a href="#about">About</a>
-                  </Button>
-                  <Button variant="ghost" asChild className="justify-start">
-                    <a href="#achievements">Projects</a>
-                  </Button>
-                  <Button variant="ghost" asChild className="justify-start">
-                    <a href="#skills">Skills</a>
-                  </Button>
-                  <Button variant="ghost" asChild className="justify-start">
-                    <a href="#contact">Contact</a>
-                  </Button>
+                  {["About", "Projects", "Skills", "Testimonials", "Contact"].map((item) => (
+                    <Button
+                      key={item}
+                      variant="ghost"
+                      asChild
+                      className="justify-start text-gray-300 hover:text-purple-300 hover:bg-purple-900/20 relative
+                    after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 
+                    after:bg-gradient-to-r after:from-purple-400 after:to-pink-400 
+                    after:transition-all after:duration-300 hover:after:w-1/4"
+                    >
+                      <a href={`#${item.toLowerCase()}`}>{item}</a>
+                    </Button>
+                  ))}
                 </div>
               </div>
             )}
@@ -216,7 +218,7 @@ const Home = () => {
             />
           </div>
           <TypingText
-            className=" md:text-xl"
+            className="md:text-xl "
             speed={0.02}
             text="A React Software Developer with extensive experience in React and TypeScript, proven in
           deliveringcomplex applications in dynamic, fast-paced environments.Strong track record in
@@ -307,35 +309,29 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {skills.map((skillGroup, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg border-transparent hover:border-blue-100 min-h-[180px]">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500/40 to-purple-500/40 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
-
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center gap-2">
-                      {<Code2 className="w-5 h-5 text-blue-500" />}
-                      <CardTitle className="text-lg font-semibold flex items-center gap-2 group-hover:text-blue-600 transition-colors">
-                        {skillGroup.category}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900 transition-colors duration-200 px-3 py-1 font-semibold"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <TechCard skillGroup={skillGroup} />
               </motion.div>
             ))}
           </div>
+        </motion.section>
+
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={fadeInUp}
+          id="testimonials"
+          className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold tracking-tighter text-center mb-12"
+          >
+            Testimonials
+          </motion.h2>
+          <motion.div variants={fadeInUp} className="flex justify-center space-x-8">
+            <TestimonialSlider />
+          </motion.div>
         </motion.section>
 
         {/* Contact Section */}

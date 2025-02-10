@@ -31,7 +31,7 @@ export const TypingText = ({
 
   const child = {
     visible: {
-      opacity: 1,
+      opacity: 0.8,
       x: 0,
       transition: {
         type: "spring",
@@ -65,7 +65,7 @@ export const TypingText = ({
         </motion.span>
       ))}
       <motion.span
-        className="inline-block w-2 h-4 bg-white ml-1"
+        className="inline-block w-2 h-4 bg-white ml-1 "
         initial={{ opacity: 0 }}
         animate={cursorControls}
       />
