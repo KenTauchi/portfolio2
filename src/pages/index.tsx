@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
+// import { useSearchParams } from "react-router-dom";
 import { ProjectCard } from "@/components/project-card";
 import {
   NavigationMenu,
@@ -42,6 +42,10 @@ const Home = () => {
     },
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <Head>
@@ -64,8 +68,18 @@ const Home = () => {
 
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="flex h-16 items-center justify-between">
-              <div className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Software Developer
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/ken_logo.svg"
+                  alt="logo"
+                  width={32}
+                  height={32}
+                  onClick={handleLogoClick}
+                  className="cursor-pointer"
+                />
+                <div className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Software Developer
+                </div>
               </div>
 
               <div className="hidden md:flex">
