@@ -12,6 +12,7 @@ type ProjectCardProps = {
   linkAdditionalText?: string;
   tags?: string[];
   className?: string;
+  techStack: string[];
 };
 
 export const ProjectCard = (props: ProjectCardProps) => {
@@ -23,13 +24,15 @@ export const ProjectCard = (props: ProjectCardProps) => {
     disclaimer,
     linkAdditionalText,
     tags = [],
+    techStack,
     className,
   } = props;
 
+  const hasLink = link && link.length > 0;
   return (
     <Card
       className={cn(
-        "group relative min-h-[300px] flex flex-col transition-all duration-300",
+        "group relative min-h-[300px] flex flex-col transition-all duration-300 h-full",
         "border border-purple-900/50 bg-black/40 backdrop-blur-lg hover:bg-black/60",
         "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-600/5 before:to-pink-600/5 before:opacity-0 before:transition-opacity",
         "hover:before:opacity-100 hover:shadow-lg hover:shadow-purple-500/10",
@@ -37,22 +40,27 @@ export const ProjectCard = (props: ProjectCardProps) => {
       )}
     >
       <CardHeader className="space-y-4 relative">
-        <div className="space-y-2">
+        <div className="space-y-4">
           <CardTitle
             className={cn(
               "flex items-center justify-between text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400",
               "group-hover:from-purple-300 group-hover:to-pink-300 transition-all",
-              link && link.length > 0 && "cursor-pointer"
+              hasLink && "cursor-pointer"
             )}
             onClick={() => {
               window.open(link?.[0], "_blank");
             }}
           >
             {title}
-            {link && link.length > 0 && (
+            {hasLink && (
               <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
             )}
           </CardTitle>
+
+          {hasLink && (
+            <p className="text-xs text-gray-400 block md:hidden">Tap to see recorded demo</p>
+          )}
+
           <CardDescription className="text-sm leading-relaxed text-gray-300">
             {description}
           </CardDescription>
@@ -72,6 +80,17 @@ export const ProjectCard = (props: ProjectCardProps) => {
           </div>
         )}
       </CardHeader>
+      <CardContent className="flex flex-row justify-start gap-3 relative flex-wrap">
+        {techStack.map((tech, index) => (
+          <Badge
+            key={index}
+            variant="secondary"
+            className="bg-purple-900/30 text-gray-300 hover:bg-purple-900/50 border border-purple-500/30 transition-colors duration-200 px-3 py-1 font-semibold "
+          >
+            {tech}
+          </Badge>
+        ))}
+      </CardContent>
 
       <CardContent className="flex-grow flex flex-col justify-between space-y-4 relative">
         {metrics && (

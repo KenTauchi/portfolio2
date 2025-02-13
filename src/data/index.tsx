@@ -8,6 +8,19 @@ const projects = [
     link: ["https://liv.rent/"],
     disclaimer: null,
     src: "livrent.mp4",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "React Query",
+      "Redux",
+      "Jest",
+      "React Testing Library",
+      "GraphQL",
+      "Design System",
+      "Vanilla Extract CSS",
+      "Docker",
+    ],
   },
   {
     title: "Design System Development",
@@ -17,6 +30,16 @@ const projects = [
     link: null,
     disclaimer: "* Link is undisclosed due to company policy",
     src: null,
+    techStack: [
+      "React",
+      "TypeScript",
+      "Redux",
+      "Jest",
+      "React Testing Library",
+      "Braid Design System",
+      "Vanilla Extract CSS",
+      "Material UI",
+    ],
   },
   {
     title: "Comprehensive Client Management System",
@@ -26,6 +49,17 @@ const projects = [
     link: null,
     disclaimer: "* Link is undisclosed due to company policy",
     src: null,
+    techStack: [
+      "React",
+      "TypeScript",
+      "React Admin",
+      "React Query",
+      "Jest",
+      "React Testing Library",
+      "Tailwind CSS",
+      "Material UI",
+      "Shadcn/ui",
+    ],
   },
   {
     title: "Automated Email Builder",
@@ -35,6 +69,7 @@ const projects = [
     link: null,
     disclaimer: "* Link is undisclosed due to company policy",
     src: null,
+    techStack: ["React", "Next.js", "TypeScript", "React Query", "Redux", "Jest", "Design System"],
   },
   {
     title: "Project Websites",
@@ -52,6 +87,15 @@ const projects = [
     linkAdditionalText: "and more...",
     disclaimer: "* Link is undisclosed due to company policy",
     src: "brentwood.mp4",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "React Query",
+      "React Testing Library",
+      "Jest",
+      "Design System",
+    ],
   },
   {
     title: "College Campaign Website",
@@ -62,6 +106,7 @@ const projects = [
 
     disclaimer: null,
     src: "langara_app.mp4",
+    techStack: ["React", "Next.js", "TypeScript", "Vercel", "Styled Components"],
   },
 ];
 

@@ -307,7 +307,7 @@ const Home = () => {
           <motion.p variants={fadeInUp} className="text-center mb-12">
             * A selection of featured projects. For more information, please contact me.
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left ">
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 {project.src ? (
@@ -329,7 +329,7 @@ const Home = () => {
                         </PopoverContent>
                       </Popover>
                     </div>
-                    <div className="hidden md:block">
+                    <div className="hidden md:block h-full">
                       <HoverCard openDelay={10}>
                         <HoverCardTrigger>
                           <ProjectCard {...project} className="text-left" />
