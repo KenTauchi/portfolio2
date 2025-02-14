@@ -33,7 +33,7 @@ const TestimonialSlider = () => {
                       </div>
 
                       <div className="relative group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-spin-slow opacity-40 blur group-hover:opacity-70 transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full  opacity-40 blur group-hover:opacity-70 transition-opacity" />
                         <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-purple-500/30 shadow-lg shadow-purple-500/20">
                           <Image
                             src={testimonial.image}
