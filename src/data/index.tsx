@@ -149,8 +149,8 @@ const skills = [
     items: ["AWS", "Vercel", "Netlify", "Docker"],
   },
   {
-    category: "And more...",
-    items: ["Graphql", "Postgresql", "MySQL", "Mongo DB", "Node.js", "Express.js"],
+    category: "Backend Development",
+    items: ["Graphql", "Postgresql", "Prisma", "MongoDB", "Node.js", "Express.js"],
   },
 ];
 
