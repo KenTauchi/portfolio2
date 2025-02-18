@@ -167,8 +167,8 @@ const Home = () => {
             <div className="relative inline-block">
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-xl opacity-75" />
               <p className="relative mx-auto mt-4 max-w-[700px] text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-pink-200 text-2xl font-semibold leading-relaxed">
-                Specializing in high-performance React applications and scalable frontend
-                architecture
+                Building high-performance React applications with scalable frontend architecture and
+                backend integration.
               </p>
             </div>
 
