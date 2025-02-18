@@ -145,12 +145,12 @@ const skills = [
     items: ["Vitest", "React Testing Library", "Jest", "Cypress"],
   },
   {
-    category: "Deployment & Hosting",
-    items: ["AWS", "Vercel", "Netlify", "Docker"],
-  },
-  {
     category: "Backend Development",
     items: ["Graphql", "Postgresql", "Prisma", "MongoDB", "Node.js", "Express.js"],
+  },
+  {
+    category: "Deployment & Hosting",
+    items: ["AWS", "Vercel", "Netlify", "Docker"],
   },
 ];
 
