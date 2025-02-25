@@ -336,7 +336,7 @@ const Home = () => {
                             autoPlay
                             loop
                             muted
-                            className="w-full h-full object-cover top-0 left-0 z-1 object-cover"
+                            className="w-full h-full top-0 left-0 z-1 object-cover"
                           >
                             <source src={project.src} type="video/mp4" />
                           </video>
@@ -353,7 +353,7 @@ const Home = () => {
                             autoPlay
                             loop
                             muted
-                            className="w-full h-full object-cover top-0 left-0 z-1 object-cover"
+                            className="w-full h-full top-0 left-0 z-1 object-cover"
                           >
                             <source src={project.src} type="video/mp4" />
                           </video>

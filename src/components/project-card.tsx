@@ -104,20 +104,8 @@ export const ProjectCard = (props: ProjectCardProps) => {
         )}
 
         <div className="space-y-3">
-          {link ? (
+          {link && link.length > 0 ? (
             <div className="flex flex-wrap gap-3">
-              {link.map((url, index) => (
-                <a
-                  key={index}
-                  className="flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Link className="w-4 h-4" />
-                  {`Link ${index === 0 ? "" : index + 1}`}
-                </a>
-              ))}
               {linkAdditionalText && (
                 <span className="text-sm text-gray-400">{linkAdditionalText}</span>
               )}
