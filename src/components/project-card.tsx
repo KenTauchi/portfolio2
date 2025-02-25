@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, BarChart, Link } from "lucide-react";
+import { ExternalLink, BarChart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
