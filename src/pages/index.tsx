@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-// import { useSearchParams } from "react-router-dom";
 import { ProjectCard } from "@/components/project-card";
 import {
   NavigationMenu,
@@ -127,6 +126,7 @@ const Home = () => {
                     after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 
                     after:bg-gradient-to-r after:from-purple-400 after:to-pink-400 
                     after:transition-all after:duration-300 hover:after:w-1/4"
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       <a href={`#${item.toLowerCase()}`}>{item}</a>
                     </Button>
@@ -141,14 +141,14 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="relative h-screen flex items-center justify-center overflow-hidden position-relative h-[95vh]"
+          className="mb-12 md:mb-0 relative flex items-center justify-center overflow-hidden position-relative h-[95vh]"
         >
           <video
             ref={videoRef}
             autoPlay
             loop
             muted
-            className="absolute w-full h-full object-cover top-0 left-0 z-0 object-cover"
+            className="absolute w-full h-full top-0 left-0 z-0 object-cover"
           >
             <source src="hero_video.mp4" type="video/mp4" />
           </video>
