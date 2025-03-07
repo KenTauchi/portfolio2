@@ -16,6 +16,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { TechCard } from "@/components/tech-card";
 import Head from "next/head";
 import TestimonialSlider from "@/components/testimonial";
+import HighlightText from "@/components/highlight-text";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -268,34 +269,18 @@ const Home = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-lg opacity-75" />
             <div className="relative p-6 bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-lg">
               <p className="text-xl leading-relaxed text-gray-300 space-y-2">
-                A{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">
-                  React Software Developer
-                </span>{" "}
-                with extensive experience in{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">
-                  React and TypeScript
-                </span>
+                A <HighlightText text="React Software Developer" />
+                with extensive experience in <HighlightText text="React and TypeScript" />
                 , proven in delivering complex applications in dynamic, fast-paced environments.
                 <br />
                 <br />
-                Strong track record in{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">
-                  client-facing roles
-                </span>{" "}
-                and{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">
-                  collaborative projects
-                </span>
+                Strong track record in <HighlightText text="client-facing roles" />
+                and <HighlightText text="collaborative projects" />
                 , combining technical expertise with effective communication skills.
                 <br />
                 <br />
-                Committed to{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">
-                  continuous learning
-                </span>{" "}
-                and expanding technical capabilities through self-directed study and peer
-                collaboration.
+                Committed to <HighlightText text="continuous learning" /> and expanding technical
+                capabilities through self-directed study and peer collaboration.
               </p>
 
               <div className="absolute -top-1 -left-1 w-20 h-20 border-t-2 border-l-2 border-purple-500/30 rounded-tl-lg" />

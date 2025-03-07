@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Ellipsis } from "lucide-react";
 import { testimonials } from "@/data";
 import Image from "next/image";
+import HighlightText from "./highlight-text";
 
 const TestimonialSlider = () => {
   return (
@@ -46,9 +47,7 @@ const TestimonialSlider = () => {
                       </div>
 
                       <div className="text-center space-y-2">
-                        <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                          {testimonial.name}
-                        </h3>
+                        <HighlightText text={testimonial.name} tag="h3" size="xl" />
                         <p className="text-sm font-medium text-gray-400 uppercase tracking-wider">
                           {testimonial.role}
                         </p>
