@@ -30,7 +30,7 @@ export function BentoIdentity() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center rounded-md border border-line px-4 py-2 font-mono text-[12px] uppercase tracking-label text-ink transition-colors hover:border-amber/60"
+              className="inline-flex items-center rounded-md border border-line px-4 py-2 font-mono text-[12px] uppercase tracking-label text-ink transition-colors hover:border-brand/60"
             >
               Contact
             </a>
@@ -80,7 +80,7 @@ export function BentoIdentity() {
                   href={s.href}
                   {...(ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-md border border-line text-ink transition-colors hover:border-amber/60 hover:text-amber"
+                  className="grid h-9 w-9 place-items-center rounded-md border border-line text-ink transition-colors hover:border-brand/60 hover:text-brand"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -90,13 +90,13 @@ export function BentoIdentity() {
         </div>
 
         {/* focus (dark tile for contrast) */}
-        <div className="flex flex-col justify-center rounded-xl border border-line-dark bg-slate p-5 text-paper">
-          <div className="font-mono text-[10px] uppercase tracking-label text-paper/50">focus</div>
+        <div className="flex flex-col justify-center rounded-xl border border-line-dark bg-slate p-5 text-white">
+          <div className="font-mono text-[10px] uppercase tracking-label text-white/50">focus</div>
           <div className="mt-2.5 flex flex-wrap gap-1.5">
             {focus.map((c) => (
               <span
                 key={c}
-                className="rounded border border-line-dark bg-slate-raised px-2 py-0.5 font-mono text-[11px] text-paper/80"
+                className="rounded border border-line-dark bg-slate-raised px-2 py-0.5 font-mono text-[11px] text-white/80"
               >
                 {c}
               </span>

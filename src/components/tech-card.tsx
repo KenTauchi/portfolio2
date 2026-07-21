@@ -16,10 +16,10 @@ const icons: Record<string, LucideIcon> = {
 export const TechCard = ({ skillGroup }: { skillGroup: SkillGroup }) => {
   const Icon = icons[skillGroup.code] ?? Boxes;
   return (
-    <div className="flex h-full flex-col rounded-lg border border-line bg-paper-raised p-5 transition-colors duration-300 hover:border-amber/40">
+    <div className="flex h-full flex-col rounded-lg border border-line bg-paper-raised p-5 transition-colors duration-300 hover:border-brand/40">
       <div className="flex items-center justify-between gap-2 border-b border-line pb-3">
         <div className="flex items-center gap-2.5">
-          <Icon className="h-4 w-4 text-amber" />
+          <Icon className="h-4 w-4 text-brand" />
           <h3 className="font-display text-[15px] font-semibold tracking-tight text-ink">
             {skillGroup.category}
           </h3>
@@ -30,7 +30,7 @@ export const TechCard = ({ skillGroup }: { skillGroup: SkillGroup }) => {
         {skillGroup.items.map((skill) => (
           <span
             key={skill}
-            className="rounded border border-line bg-paper px-2.5 py-1 font-mono text-[12px] text-ink-soft transition-colors hover:border-amber/50 hover:text-ink"
+            className="rounded border border-line bg-paper px-2.5 py-1 font-mono text-[12px] text-ink-soft transition-colors hover:border-brand/50 hover:text-ink"
           >
             {skill}
           </span>

@@ -22,7 +22,7 @@ export function BentoReviews() {
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] tracking-label text-mute">{t.code}</span>
-              <Quote className="h-5 w-5 text-amber/50" />
+              <Quote className="h-5 w-5 text-brand/50" />
             </div>
             <blockquote className="mt-4 text-[15px] leading-relaxed text-ink-soft">{t.message}</blockquote>
             <figcaption className="mt-5 flex items-center gap-3 border-t border-line pt-5">

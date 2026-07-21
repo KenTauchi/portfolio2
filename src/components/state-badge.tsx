@@ -3,7 +3,7 @@ import { ProjectState } from "@/data";
 
 const styles: Record<ProjectState, { dot: string; text: string; ring: string; label: string }> = {
   live: { dot: "bg-verify", text: "text-verify", ring: "border-verify/40", label: "live" },
-  native: { dot: "bg-amber", text: "text-amber", ring: "border-amber/40", label: "native" },
+  native: { dot: "bg-brand", text: "text-brand", ring: "border-brand/40", label: "native" },
   internal: { dot: "bg-mute", text: "text-mute", ring: "border-line", label: "internal" },
 };
 

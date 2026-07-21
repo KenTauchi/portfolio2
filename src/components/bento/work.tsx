@@ -13,9 +13,14 @@ function DetailsCard({ p }: { p: Project }) {
   const link = href(p);
   return (
     <div className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-xl border border-line bg-paper-raised p-6">
-      <span className="absolute left-0 top-0 h-full w-1 bg-amber" />
+      <span className="absolute left-0 top-0 h-full w-1 bg-brand" />
       <div className="flex items-center justify-between gap-2">
-        <span className="font-mono text-[11px] tracking-label text-mute">{p.code}</span>
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono text-[11px] tracking-label text-mute">{p.code}</span>
+          <span className="rounded border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-ink-soft">
+            {p.type}
+          </span>
+        </div>
         <div className="flex items-center gap-2.5">
           <span className="hidden font-mono text-[10px] uppercase tracking-label text-mute sm:inline">
             {p.platform}
@@ -81,7 +86,7 @@ function MovieTile({ p }: { p: Project }) {
       )}
       <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 font-mono text-[10px] uppercase tracking-label text-white backdrop-blur">
         <span className="h-1.5 w-1.5 rounded-full bg-verify" />
-        live app
+        live {p.type === "Website" ? "site" : "app"}
       </span>
     </Wrapper>
   );
@@ -119,8 +124,11 @@ function VideoTile({ p }: { p: Project }) {
         <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white/90 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       )}
       <div className="relative p-6 text-white">
-        <div className="mb-3 flex items-center gap-2">
+        <div className="mb-3 flex flex-wrap items-center gap-2">
           <StateBadge state={p.state} />
+          <span className="rounded border border-white/25 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-white/80">
+            {p.type}
+          </span>
           <span className="font-mono text-[10px] uppercase tracking-label text-white/70">{p.platform}</span>
         </div>
         <h3 className="font-display text-lg font-semibold tracking-tight">{p.title}</h3>

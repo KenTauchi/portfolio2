@@ -7,7 +7,7 @@ type Props = {
   size?: "regular" | "lg" | "xl";
 };
 
-// Highlighter-marker emphasis on the paper canvas — amber wash, ink text.
+// Highlighter-marker emphasis on the paper canvas — brand wash, ink text.
 export default function HighlightText({
   text,
   weight = "semibold",
@@ -18,7 +18,7 @@ export default function HighlightText({
   return (
     <Tag
       className={cn(
-        "box-decoration-clone rounded-[3px] bg-amber-soft px-1 text-ink",
+        "box-decoration-clone rounded-[3px] bg-brand-soft px-1 text-ink",
         weight === "bold" && "font-bold",
         weight === "semibold" && "font-semibold",
         weight === "medium" && "font-medium",

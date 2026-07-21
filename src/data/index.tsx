@@ -4,10 +4,12 @@
 // ─────────────────────────────────────────────────────────────
 
 export type ProjectState = "live" | "native" | "internal";
+export type ProjectType = "Website" | "Application";
 
 export type Project = {
   code: string; // catalog id, e.g. "WK-01"
   title: string;
+  type: ProjectType;
   state: ProjectState;
   platform: string; // where it runs, e.g. "Web · iOS · Android"
   description: string;
@@ -84,6 +86,7 @@ const projects: Project[] = [
   {
     code: "WK-01",
     title: "White-Label Ordering Platform",
+    type: "Application",
     state: "live",
     platform: "Web · iOS · Android",
     description:
@@ -108,6 +111,7 @@ const projects: Project[] = [
   {
     code: "WK-02",
     title: "Liv.rent — Listing Platform",
+    type: "Application",
     state: "live",
     platform: "Web",
     description:
@@ -134,6 +138,7 @@ const projects: Project[] = [
   {
     code: "WK-03",
     title: "Kiosk & POS Apps",
+    type: "Application",
     state: "native",
     platform: "iOS · Android · Kiosk",
     description:
@@ -147,6 +152,7 @@ const projects: Project[] = [
   {
     code: "WK-04",
     title: "Kitchen Display System",
+    type: "Application",
     state: "internal",
     platform: "Web · Tablet",
     description:
@@ -160,6 +166,7 @@ const projects: Project[] = [
   {
     code: "WK-05",
     title: "Design System Development",
+    type: "Application",
     state: "internal",
     platform: "Internal",
     description:
@@ -176,12 +183,13 @@ const projects: Project[] = [
       "React Testing Library",
       "Braid Design System",
       "Vanilla Extract CSS",
-      "Material UI",
+      "shadcn/ui",
     ],
   },
   {
     code: "WK-06",
     title: "Client Management System",
+    type: "Application",
     state: "internal",
     platform: "Web",
     description:
@@ -198,13 +206,13 @@ const projects: Project[] = [
       "Jest",
       "React Testing Library",
       "Tailwind CSS",
-      "Material UI",
       "shadcn/ui",
     ],
   },
   {
     code: "WK-07",
     title: "Automated Email Builder",
+    type: "Application",
     state: "internal",
     platform: "Web",
     description:
@@ -218,6 +226,7 @@ const projects: Project[] = [
   {
     code: "WK-08",
     title: "Project Websites",
+    type: "Website",
     state: "live",
     platform: "Web ×5",
     description:
@@ -246,6 +255,7 @@ const projects: Project[] = [
   {
     code: "WK-09",
     title: "College Campaign Website",
+    type: "Website",
     state: "live",
     platform: "Web",
     description:
@@ -271,7 +281,6 @@ const skills: SkillGroup[] = [
       "Tailwind CSS",
       "Styled-components",
       "Sass/SCSS",
-      "Material UI",
       "Vanilla Extract",
       "shadcn/ui",
       "Braid",

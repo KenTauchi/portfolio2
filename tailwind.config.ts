@@ -29,9 +29,9 @@ export default {
           DEFAULT: "var(--slate)",
           raised: "var(--slate-raised)",
         },
-        amber: {
-          DEFAULT: "var(--amber)",
-          soft: "var(--amber-soft)",
+        brand: {
+          DEFAULT: "var(--brand)",
+          soft: "var(--brand-soft)",
         },
         mute: "var(--mute)",
         verify: "var(--verify)",

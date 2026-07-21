@@ -15,7 +15,7 @@ export function SectionHeader({ label, code, title, description, className }: Se
       <div className="flex items-center gap-4">
         <span className="font-mono text-[11px] uppercase tracking-label text-mute">{label}</span>
         <span className="h-px flex-1 bg-line" />
-        <span className="font-mono text-[11px] tracking-label text-amber">{code}</span>
+        <span className="font-mono text-[11px] tracking-label text-brand">{code}</span>
       </div>
       {title && (
         <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">

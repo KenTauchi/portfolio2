@@ -4,42 +4,77 @@
 
 @layer base {
   :root {
-    /* ── raw palette ─────────────────────────────── */
-    --paper: #ece8df; /* warm bone canvas */
-    --paper-raised: #f5f2eb; /* raised card surface */
-    --paper-sunken: #e3ded2; /* inset / secondary surface */
-    --ink: #17181b; /* primary text */
-    --ink-soft: #3a3b40; /* secondary text */
-    --slate: #1e2530; /* dark spec-panel inset */
-    --slate-raised: #262f3d; /* dark surface */
-    --amber: #de7a1b; /* single accent / signal */
-    --amber-soft: #f0e3cf; /* accent tint on paper */
-    --mute: #8a867c; /* muted text / metadata */
-    --verify: #2e7d6b; /* semantic "tested/verified" */
-    --line: #d7d1c4; /* hairline on paper */
-    --line-dark: #333c4a; /* hairline on slate */
+    /* ── palette · Emerald (light) ────────────────── */
+    --paper: #eef1ee; /* cool green-neutral canvas */
+    --paper-raised: #f7faf7; /* raised card surface */
+    --paper-sunken: #e2e7e1; /* inset / secondary surface */
+    --ink: #16191a; /* primary text */
+    --ink-soft: #444b46; /* secondary text */
+    --slate: #10231b; /* deep green spec-panel (fixed dark) */
+    --slate-raised: #1c3a2e; /* chip surface on slate */
+    --brand: #0e9c6a; /* emerald accent / signal */
+    --brand-soft: #d6efe3; /* accent wash on paper */
+    --mute: #6f776f; /* muted text / metadata */
+    --verify: #0e9c6a; /* semantic "approved / live" */
+    --line: #d5dbd3; /* hairline on paper */
+    --line-dark: #294034; /* hairline on slate */
 
-    /* ── shadcn token mapping (raw vars, not hsl) ─── */
+    /* ── shadcn token mapping (reference the palette) ── */
     --background: var(--paper);
     --foreground: var(--ink);
     --card: var(--paper-raised);
     --card-foreground: var(--ink);
     --popover: var(--slate);
-    --popover-foreground: var(--paper);
+    --popover-foreground: #e7f1ea;
     --primary: var(--ink);
     --primary-foreground: var(--paper);
     --secondary: var(--paper-sunken);
     --secondary-foreground: var(--ink);
     --muted: var(--paper-sunken);
     --muted-foreground: var(--mute);
-    --accent: var(--amber-soft);
+    --accent: var(--brand-soft);
     --accent-foreground: var(--ink);
-    --destructive: #b4472e;
+    --destructive: #c23b2e;
     --destructive-foreground: #f7f1e8;
     --border: var(--line);
     --input: var(--line);
-    --ring: var(--amber);
+    --ring: var(--brand);
     --radius: 0.55rem;
+  }
+
+  /* ── palette · Emerald (dark) ── only raw tokens change ── */
+  :root[data-theme="dark"] {
+    --paper: #0e120f;
+    --paper-raised: #161b17;
+    --paper-sunken: #0a0d0b;
+    --ink: #e7eae7;
+    --ink-soft: #a5aca6;
+    --slate: #0f1a14;
+    --slate-raised: #1b2c22;
+    --brand: #34d399;
+    --brand-soft: rgba(52, 211, 153, 0.16);
+    --mute: #727a73;
+    --verify: #34d399;
+    --line: #262c27;
+    --line-dark: #2c3c31;
+  }
+  /* system dark, unless the viewer explicitly chose light */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0e120f;
+      --paper-raised: #161b17;
+      --paper-sunken: #0a0d0b;
+      --ink: #e7eae7;
+      --ink-soft: #a5aca6;
+      --slate: #0f1a14;
+      --slate-raised: #1b2c22;
+      --brand: #34d399;
+      --brand-soft: rgba(52, 211, 153, 0.16);
+      --mute: #727a73;
+      --verify: #34d399;
+      --line: #262c27;
+      --line-dark: #2c3c31;
+    }
   }
 }
 
@@ -57,13 +92,8 @@
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: var(--amber);
-    color: var(--paper);
-  }
-  /* Subtle blueprint grain — a faint dotted grid, true to spec-sheet paper */
-  .bg-grid {
-    background-image: radial-gradient(var(--line) 1px, transparent 1px);
-    background-size: 22px 22px;
+    background: var(--brand);
+    color: #fff;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -79,6 +109,17 @@
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -89,17 +130,4 @@
 }
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-.animate-blink {
-  animation: blink 1.1s step-end infinite;
 }

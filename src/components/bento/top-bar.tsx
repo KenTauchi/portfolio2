@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { profile } from "@/data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const nav = ["work", "stack", "reviews", "contact"];
 
@@ -18,33 +19,37 @@ export function BentoTopBar() {
           <span className="font-display text-sm font-semibold tracking-tight text-ink">Ken Tauchi</span>
         </a>
 
-        <nav className="hidden items-center gap-0.5 md:flex">
-          {nav.map((n) => (
+        <div className="flex items-center gap-2">
+          <nav className="hidden items-center gap-0.5 md:flex">
+            {nav.map((n) => (
+              <a
+                key={n}
+                href={`#${n}`}
+                className="rounded-md px-2.5 py-1.5 font-mono text-[12px] uppercase tracking-label text-mute transition-colors hover:text-ink"
+              >
+                {n}
+              </a>
+            ))}
             <a
-              key={n}
-              href={`#${n}`}
-              className="rounded-md px-2.5 py-1.5 font-mono text-[12px] uppercase tracking-label text-mute transition-colors hover:text-ink"
+              href={profile.resume}
+              download
+              className="ml-2 inline-flex items-center gap-1.5 rounded-md border border-ink bg-ink px-3 py-1.5 font-mono text-[12px] uppercase tracking-label text-paper transition-colors hover:bg-transparent hover:text-ink"
             >
-              {n}
+              <Download className="h-3.5 w-3.5" /> Resume
             </a>
-          ))}
-          <a
-            href={profile.resume}
-            download
-            className="ml-3 inline-flex items-center gap-1.5 rounded-md border border-ink bg-ink px-3 py-1.5 font-mono text-[12px] uppercase tracking-label text-paper transition-colors hover:bg-transparent hover:text-ink"
-          >
-            <Download className="h-3.5 w-3.5" /> Resume
-          </a>
-        </nav>
+          </nav>
 
-        <button
-          className="grid h-9 w-9 place-items-center rounded-md text-ink transition-colors hover:bg-paper-sunken md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+          <ThemeToggle />
+
+          <button
+            className="grid h-9 w-9 place-items-center rounded-md text-ink transition-colors hover:bg-paper-sunken md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
