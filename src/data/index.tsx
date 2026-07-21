@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export type ProjectState = "live" | "native" | "internal";
-export type ProjectType = "Website" | "Application";
+export type ProjectType = "Website" | "App";
 
 export type Project = {
   code: string; // catalog id, e.g. "WK-01"
@@ -86,7 +86,7 @@ const projects: Project[] = [
   {
     code: "WK-01",
     title: "White-Label Ordering Platform",
-    type: "Application",
+    type: "App",
     state: "live",
     platform: "Web · iOS · Android",
     description:
@@ -111,7 +111,7 @@ const projects: Project[] = [
   {
     code: "WK-02",
     title: "Liv.rent — Listing Platform",
-    type: "Application",
+    type: "App",
     state: "live",
     platform: "Web",
     description:
@@ -138,7 +138,7 @@ const projects: Project[] = [
   {
     code: "WK-03",
     title: "Kiosk & POS Apps",
-    type: "Application",
+    type: "App",
     state: "native",
     platform: "iOS · Android · Kiosk",
     description:
@@ -152,7 +152,7 @@ const projects: Project[] = [
   {
     code: "WK-04",
     title: "Kitchen Display System",
-    type: "Application",
+    type: "App",
     state: "internal",
     platform: "Web · Tablet",
     description:
@@ -166,7 +166,7 @@ const projects: Project[] = [
   {
     code: "WK-05",
     title: "Design System Development",
-    type: "Application",
+    type: "App",
     state: "internal",
     platform: "Internal",
     description:
@@ -189,7 +189,7 @@ const projects: Project[] = [
   {
     code: "WK-06",
     title: "Client Management System",
-    type: "Application",
+    type: "App",
     state: "internal",
     platform: "Web",
     description:
@@ -212,7 +212,7 @@ const projects: Project[] = [
   {
     code: "WK-07",
     title: "Automated Email Builder",
-    type: "Application",
+    type: "App",
     state: "internal",
     platform: "Web",
     description:

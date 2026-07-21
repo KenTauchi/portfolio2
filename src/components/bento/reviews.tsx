@@ -20,8 +20,7 @@ export function BentoReviews() {
             key={t.id}
             className="mb-4 break-inside-avoid rounded-xl border border-line bg-paper-raised p-6"
           >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[11px] tracking-label text-mute">{t.code}</span>
+            <div className="flex justify-end">
               <Quote className="h-5 w-5 text-brand/50" />
             </div>
             <blockquote className="mt-4 text-[15px] leading-relaxed text-ink-soft">{t.message}</blockquote>

@@ -24,7 +24,6 @@ export const TechCard = ({ skillGroup }: { skillGroup: SkillGroup }) => {
             {skillGroup.category}
           </h3>
         </div>
-        <span className="font-mono text-[11px] tracking-label text-mute">{skillGroup.code}</span>
       </div>
       <div className="mt-4 flex flex-wrap gap-1.5">
         {skillGroup.items.map((skill) => (

@@ -15,12 +15,9 @@ function DetailsCard({ p }: { p: Project }) {
     <div className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-xl border border-line bg-paper-raised p-6">
       <span className="absolute left-0 top-0 h-full w-1 bg-brand" />
       <div className="flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2.5">
-          <span className="font-mono text-[11px] tracking-label text-mute">{p.code}</span>
-          <span className="rounded border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-ink-soft">
-            {p.type}
-          </span>
-        </div>
+        <span className="rounded border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-ink-soft">
+          {p.type}
+        </span>
         <div className="flex items-center gap-2.5">
           <span className="hidden font-mono text-[10px] uppercase tracking-label text-mute sm:inline">
             {p.platform}

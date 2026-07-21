@@ -9,7 +9,7 @@ type ProjectCardProps = Project & { className?: string; demoSlot?: ReactNode };
 // A project rendered as a documented component entry: id + state in the
 // header, description, "props" (tech stack), and a resolved metric.
 export const ProjectCard = (props: ProjectCardProps) => {
-  const { code, title, type, state, platform, description, metrics, link, disclaimer, linkAdditionalText, techStack, demoSlot, className } = props;
+  const { title, type, state, platform, description, metrics, link, disclaimer, linkAdditionalText, techStack, demoSlot, className } = props;
 
   const hasLink = !!link && link.length > 0;
 
@@ -22,12 +22,9 @@ export const ProjectCard = (props: ProjectCardProps) => {
     >
       {/* meta header */}
       <div className="flex items-center justify-between gap-2 border-b border-line px-5 py-3">
-        <div className="flex items-center gap-2.5">
-          <span className="font-mono text-[11px] tracking-label text-mute">{code}</span>
-          <span className="rounded border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-ink-soft">
-            {type}
-          </span>
-        </div>
+        <span className="rounded border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-ink-soft">
+          {type}
+        </span>
         <div className="flex items-center gap-2.5">
           <span className="hidden font-mono text-[10px] uppercase tracking-label text-mute sm:inline">
             {platform}
