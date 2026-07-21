@@ -1,13 +1,122 @@
-const projects = [
+// ─────────────────────────────────────────────────────────────
+// Content model for the portfolio, framed as a design system:
+// sections are documented components, projects are catalog entries.
+// ─────────────────────────────────────────────────────────────
+
+export type ProjectState = "live" | "native" | "internal";
+
+export type Project = {
+  code: string; // catalog id, e.g. "WK-01"
+  title: string;
+  state: ProjectState;
+  platform: string; // where it runs, e.g. "Web · iOS · Android"
+  description: string;
+  metrics: string | null;
+  link: string[] | null;
+  linkAdditionalText?: string;
+  disclaimer: string | null;
+  src: string | null; // demo video in /public
+  techStack: string[];
+  highlight?: { value: string; label: string }; // big-number treatment on a featured tile
+};
+
+export type SkillGroup = {
+  code: string; // "TK-01"
+  category: string;
+  items: string[];
+};
+
+export type Testimonial = {
+  id: number;
+  code: string; // "REV-01"
+  name: string;
+  role: string;
+  message: string;
+  image: string;
+};
+
+export type Metric = {
+  varName: string; // rendered as a CSS-custom-property style token id
+  value: string;
+  label: string;
+};
+
+export type SectionMeta = { id: string; code: string; label: string };
+
+export const sections: SectionMeta[] = [
+  { id: "identity", code: "01", label: "identity" },
+  { id: "work", code: "02", label: "work" },
+  { id: "stack", code: "03", label: "stack" },
+  { id: "reviews", code: "04", label: "reviews" },
+  { id: "contact", code: "05", label: "contact" },
+];
+
+export const profile = {
+  name: "Ken Tauchi",
+  role: "Fullstack Engineer",
+  discipline: "Frontend",
+  location: "Vancouver, BC",
+  focus: "React · React Native · AI-augmented delivery",
+  availability: "Open to opportunities",
+  version: "v2.0",
+  resume: "/Resume-KenTauchi.pdf",
+};
+
+export const metrics: Metric[] = [
+  { varName: "--daily-orders", value: "500+", label: "orders a day on the white-label platform" },
+  { varName: "--sales-lift", value: "201%", label: "sales lift on liv.rent" },
+  { varName: "--client-sales", value: "$500M", label: "client sales in one week" },
+  { varName: "--platforms", value: "10+", label: "production platforms shipped" },
+];
+
+export const socials = [
+  { label: "GitHub", handle: "@KenTauchi", href: "https://github.com/KenTauchi", icon: "github" as const },
   {
-    title: "Liv.rent - Listing Platform",
+    label: "LinkedIn",
+    handle: "in/kentauchi",
+    href: "https://www.linkedin.com/in/kentauchi/",
+    icon: "linkedin" as const,
+  },
+  { label: "Email", handle: "kentauchijb@gmail.com", href: "mailto:kentauchijb@gmail.com", icon: "mail" as const },
+];
+
+const projects: Project[] = [
+  {
+    code: "WK-01",
+    title: "White-Label Ordering Platform",
+    state: "live",
+    platform: "Web · iOS · Android",
     description:
-      "Real estate rental platform that aims to streamline the rental process for both renters and landlords. It provides tools to help renters find verified listings, apply for apartments, sign digital contracts, and pay rent online.",
-    techs: ["React", "Next.js", "TypeScript", "React Query", "Redux", "Jest", "Design System"],
+      "Multi-tenant SaaS powering pickup, delivery, and loyalty for restaurant brands across Canada and the US — every branded app built from a single shared codebase. Club Kitchen is one live brand on the platform.",
+    metrics: "500+ orders a day; one codebase, many branded apps across North America",
+    link: ["https://order.clubkitchen.ca/"],
+    disclaimer: null,
+    src: "whitelabel.mp4",
+    highlight: { value: "500+", label: "orders a day on the platform" },
+    techStack: [
+      "React",
+      "Next.js",
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "TanStack Query",
+      "Zustand",
+      "GraphQL",
+      "Design System",
+    ],
+  },
+  {
+    code: "WK-02",
+    title: "Liv.rent — Listing Platform",
+    state: "live",
+    platform: "Web",
+    description:
+      "Real estate rental platform that streamlines the rental process for renters and landlords — verified listings, applications, digital contracts, and online rent payments.",
     metrics: "201% increase in sales",
     link: ["https://liv.rent/"],
     disclaimer: null,
     src: "livrent.mp4",
+    highlight: { value: "201%", label: "increase in sales" },
     techStack: [
       "React",
       "Next.js",
@@ -23,12 +132,41 @@ const projects = [
     ],
   },
   {
-    title: "Design System Development",
+    code: "WK-03",
+    title: "Kiosk & POS Apps",
+    state: "native",
+    platform: "iOS · Android · Kiosk",
     description:
-      "Architected and maintained a comprehensive component library used across multiple enterprise applications. Drastically reduced development time for new features.",
-    metrics: "Faster feature development within tech team",
+      "Self-service kiosk and staff-facing point-of-sale apps built on the same platform architecture — sharing components and business logic with the web and mobile clients.",
+    metrics: "Shared architecture across customer and staff surfaces",
     link: null,
-    disclaimer: "* Link is undisclosed due to company policy",
+    disclaimer: "* Link undisclosed due to company policy",
+    src: null,
+    techStack: ["React Native", "Expo", "TypeScript", "Zustand", "TanStack Query", "Design System"],
+  },
+  {
+    code: "WK-04",
+    title: "Kitchen Display System",
+    state: "internal",
+    platform: "Web · Tablet",
+    description:
+      "Real-time order-management display for kitchen operations, keeping tickets in sync across devices as orders move through the line.",
+    metrics: "Real-time order sync for kitchen operations",
+    link: null,
+    disclaimer: "* Link undisclosed due to company policy",
+    src: null,
+    techStack: ["React", "TypeScript", "WebSockets", "TanStack Query", "Design System"],
+  },
+  {
+    code: "WK-05",
+    title: "Design System Development",
+    state: "internal",
+    platform: "Internal",
+    description:
+      "Architected and maintained a comprehensive component library used across multiple enterprise applications, drastically reducing development time for new features.",
+    metrics: "Faster feature development across the whole tech team",
+    link: null,
+    disclaimer: "* Link undisclosed due to company policy",
     src: null,
     techStack: [
       "React",
@@ -42,12 +180,15 @@ const projects = [
     ],
   },
   {
-    title: "Comprehensive Client Management System",
+    code: "WK-06",
+    title: "Client Management System",
+    state: "internal",
+    platform: "Web",
     description:
-      "Architected and implemented a robust client management system for a real estate development company. Implemented automated pipeline tracking and workflow optimization.",
-    metrics: "Helped client aquire $500M insales (200 condo units) within a week",
+      "Architected and implemented a robust client management system for a real estate development company, with automated pipeline tracking and workflow optimization.",
+    metrics: "Helped a client acquire $500M in sales (200 condo units) in a single week",
     link: null,
-    disclaimer: "* Link is undisclosed due to company policy",
+    disclaimer: "* Link undisclosed due to company policy",
     src: null,
     techStack: [
       "React",
@@ -58,25 +199,30 @@ const projects = [
       "React Testing Library",
       "Tailwind CSS",
       "Material UI",
-      "Shadcn/ui",
+      "shadcn/ui",
     ],
   },
   {
+    code: "WK-07",
     title: "Automated Email Builder",
+    state: "internal",
+    platform: "Web",
     description:
-      "Developed a custom email automation solution, featuring drag-and-drop template creation and scheduled campaign functionality for precision-targeted customer outreach.",
-    metrics: "Drastically improved client's productivity",
+      "A custom email automation solution featuring drag-and-drop template creation and scheduled campaigns for precision-targeted customer outreach.",
+    metrics: "Drastically improved the client's outreach productivity",
     link: null,
-    disclaimer: "* Link is undisclosed due to company policy",
+    disclaimer: "* Link undisclosed due to company policy",
     src: null,
     techStack: ["React", "Next.js", "TypeScript", "React Query", "Redux", "Jest", "Design System"],
   },
   {
+    code: "WK-08",
     title: "Project Websites",
+    state: "live",
+    platform: "Web ×5",
     description:
-      "Developed and maintained multiple project websites with integrated inquiry system.",
-    metrics:
-      "Helped client connect with potential clients by connecting the form to the CRM system",
+      "Developed and maintained multiple real estate project websites with an integrated inquiry system wired into the client's CRM.",
+    metrics: "Connected clients with prospects by piping inquiry forms into the CRM",
     link: [
       "https://www.concordbrentwood.com/oasis",
       "https://concordpiano.ca/",
@@ -84,8 +230,8 @@ const projects = [
       "https://w1.place/",
       "https://concordmetrotown.com/",
     ],
-    linkAdditionalText: "and more...",
-    disclaimer: "* Link is undisclosed due to company policy",
+    linkAdditionalText: "and more…",
+    disclaimer: null,
     src: "brentwood.mp4",
     techStack: [
       "React",
@@ -98,65 +244,71 @@ const projects = [
     ],
   },
   {
+    code: "WK-09",
     title: "College Campaign Website",
-    description: "Developed and maintained the Langara College website leveraging Headless CMS.",
-    metrics:
-      "Drove increased demand for website creation across multiple departments at Langara College.",
+    state: "live",
+    platform: "Web",
+    description:
+      "Developed and maintained the Langara College campaign website leveraging a headless CMS, driving demand for new sites across multiple departments.",
+    metrics: "Sparked demand for new websites across Langara College departments",
     link: ["https://langara-app.ca/"],
-
     disclaimer: null,
     src: "langara_app.mp4",
     techStack: ["React", "Next.js", "TypeScript", "Vercel", "Styled Components"],
   },
 ];
 
-const skills = [
+const skills: SkillGroup[] = [
   {
+    code: "TK-01",
     category: "Core Framework & Languages",
-    items: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "TypeScript",
-      "JavaScript (ES6+)",
-      "React Native",
-      "HTML5",
-      "CSS3",
-    ],
+    items: ["React", "TypeScript", "Next.js", "JavaScript (ES6+)", "React Native", "Expo", "HTML5", "CSS3"],
   },
   {
-    category: "Styling Solutions",
+    code: "TK-02",
+    category: "Styling & Design Systems",
     items: [
       "Tailwind CSS",
       "Styled-components",
       "Sass/SCSS",
-      "Material-UI (MUI)",
-      "Vanilla Extract CSS",
+      "Material UI",
+      "Vanilla Extract",
       "shadcn/ui",
+      "Braid",
       "Framer Motion",
     ],
   },
   {
+    code: "TK-03",
     category: "State Management",
-    items: ["React Context", "Redux", "React Query / TanStack Query"],
+    items: ["React Context", "Redux", "TanStack Query", "Zustand"],
   },
   {
+    code: "TK-04",
     category: "Testing",
-    items: ["Vitest", "React Testing Library", "Jest", "Cypress"],
+    items: ["Vitest", "Jest", "React Testing Library", "Cypress", "Playwright"],
   },
   {
-    category: "Backend Development",
-    items: ["Graphql", "Postgresql", "Prisma", "MongoDB", "Node.js", "Express.js"],
+    code: "TK-05",
+    category: "Backend & Data",
+    items: ["GraphQL", "PostgreSQL", "Prisma", "MongoDB", "Node.js", "Express.js", "Firebase"],
   },
   {
+    code: "TK-06",
+    category: "AI-Augmented Development",
+    items: ["Claude Code", "Cursor", "GitHub Copilot", "MCP Workflows"],
+  },
+  {
+    code: "TK-07",
     category: "Deployment & Hosting",
     items: ["AWS", "Vercel", "Netlify", "Docker"],
   },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     id: 1,
+    code: "REV-01",
     name: "Tyler Yan",
     role: "Project Manager",
     message:
@@ -165,6 +317,7 @@ const testimonials = [
   },
   {
     id: 2,
+    code: "REV-02",
     name: "Otavio Augusto",
     role: "Senior Software Developer",
     message:
@@ -172,7 +325,8 @@ const testimonials = [
     image: "/otavio-linkedin.jpeg",
   },
   {
-    id: 2,
+    id: 3,
+    code: "REV-03",
     name: "Tomoko Okochi",
     role: "Project Manager",
     message:
@@ -180,7 +334,8 @@ const testimonials = [
     image: "/tomoko-linkedin.jpeg",
   },
   {
-    id: 3,
+    id: 4,
+    code: "REV-04",
     name: "Hiteshri Nanda",
     role: "UI/UX & Visual Designer",
     message:

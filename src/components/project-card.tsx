@@ -1,120 +1,87 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, BarChart } from "lucide-react";
+import { ReactNode } from "react";
+import { ArrowUpRight, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StateBadge } from "@/components/state-badge";
+import { Project } from "@/data";
 
-type ProjectCardProps = {
-  title: string;
-  description: string;
-  metrics: string | null;
-  link: string[] | null;
-  disclaimer: string | null;
-  linkAdditionalText?: string;
-  tags?: string[];
-  className?: string;
-  techStack: string[];
-};
+type ProjectCardProps = Project & { className?: string; demoSlot?: ReactNode };
 
+// A project rendered as a documented component entry: id + state in the
+// header, description, "props" (tech stack), and a resolved metric.
 export const ProjectCard = (props: ProjectCardProps) => {
-  const {
-    title,
-    description,
-    metrics,
-    link,
-    disclaimer,
-    linkAdditionalText,
-    tags = [],
-    techStack,
-    className,
-  } = props;
+  const { code, title, state, platform, description, metrics, link, disclaimer, linkAdditionalText, techStack, demoSlot, className } = props;
 
-  const hasLink = link && link.length > 0;
+  const hasLink = !!link && link.length > 0;
+
   return (
-    <Card
+    <div
       className={cn(
-        "group relative min-h-[300px] flex flex-col transition-all duration-300 h-full",
-        "border border-purple-900/50 bg-black/40 backdrop-blur-lg hover:bg-black/60",
-        "before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-600/5 before:to-pink-600/5 before:opacity-0 before:transition-opacity",
-        "hover:before:opacity-100 hover:shadow-lg hover:shadow-purple-500/10",
+        "group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-lg border border-line bg-paper-raised transition-all duration-300 hover:border-amber/60 hover:shadow-[0_6px_24px_-12px_rgba(23,24,27,0.25)]",
         className
       )}
     >
-      <CardHeader className="space-y-4 relative">
-        <div className="space-y-4">
-          <CardTitle
-            className={cn(
-              "flex items-center justify-between text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400",
-              "group-hover:from-purple-300 group-hover:to-pink-300 transition-all",
-              hasLink && "cursor-pointer"
-            )}
-            onClick={() => {
-              window.open(link?.[0], "_blank");
-            }}
+      {/* meta header */}
+      <div className="flex items-center justify-between gap-2 border-b border-line px-5 py-3">
+        <span className="font-mono text-[11px] tracking-label text-mute">{code}</span>
+        <div className="flex items-center gap-2.5">
+          <span className="hidden font-mono text-[10px] uppercase tracking-label text-mute sm:inline">
+            {platform}
+          </span>
+          {demoSlot}
+          <StateBadge state={state} />
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col p-5">
+        {hasLink ? (
+          <a
+            href={link![0]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-fit items-center gap-1.5 rounded-sm font-display text-lg font-semibold tracking-tight text-ink outline-none transition-colors hover:text-amber focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-paper-raised"
           >
             {title}
-            {hasLink && (
-              <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
-            )}
-          </CardTitle>
+            <ArrowUpRight className="h-4 w-4 text-amber transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        ) : (
+          <h3 className="font-display text-lg font-semibold tracking-tight text-ink">{title}</h3>
+        )}
 
-          {hasLink && (
-            <p className="text-xs text-gray-400 block md:hidden">Tap to see recorded demo</p>
-          )}
+        <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{description}</p>
 
-          <CardDescription className="text-sm leading-relaxed text-gray-300">
-            {description}
-          </CardDescription>
-        </div>
-
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="bg-purple-900/30 text-purple-300 hover:bg-purple-900/50 border border-purple-500/30"
+        {/* props */}
+        <div className="mt-4">
+          <span className="font-mono text-[10px] uppercase tracking-label text-mute">props</span>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="rounded border border-line bg-paper px-2 py-0.5 font-mono text-[11px] text-ink-soft transition-colors group-hover:border-line"
               >
-                {tag}
-              </Badge>
+                {tech}
+              </span>
             ))}
           </div>
-        )}
-      </CardHeader>
-      <CardContent className="flex flex-row justify-start gap-3 relative flex-wrap">
-        {techStack.map((tech, index) => (
-          <Badge
-            key={index}
-            variant="secondary"
-            className="bg-purple-900/30 text-gray-300 hover:bg-purple-900/50 border border-purple-500/30 transition-colors duration-200 px-3 py-1 font-semibold "
-          >
-            {tech}
-          </Badge>
-        ))}
-      </CardContent>
+        </div>
 
-      <CardContent className="flex-grow flex flex-col justify-between space-y-4 relative">
-        {metrics && (
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-semibold text-purple-300">
-              <BarChart className="w-4 h-4" />
-              <h4>Key Metrics</h4>
+        {/* metric + notes */}
+        <div className="mt-auto pt-5">
+          {metrics && (
+            <div className="flex items-start gap-2 border-t border-line pt-4">
+              <BarChart3 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber" />
+              <p className="text-[13px] leading-snug text-ink-soft">{metrics}</p>
             </div>
-            <p className="text-sm text-gray-400 pl-6">{metrics}</p>
-          </div>
-        )}
-
-        <div className="space-y-3">
-          {link && link.length > 0 ? (
-            <div className="flex flex-wrap gap-3">
-              {linkAdditionalText && (
-                <span className="text-sm text-gray-400">{linkAdditionalText}</span>
-              )}
-            </div>
-          ) : (
-            <p className="text-xs text-gray-400 italic">{disclaimer}</p>
+          )}
+          {!hasLink && disclaimer && (
+            <p className="mt-2.5 font-mono text-[10px] text-mute">{disclaimer}</p>
+          )}
+          {hasLink && link!.length > 1 && (
+            <p className="mt-2.5 font-mono text-[10px] uppercase tracking-label text-mute">
+              {link!.length} sites {linkAdditionalText}
+            </p>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };

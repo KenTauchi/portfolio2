@@ -1,39 +1,41 @@
-import { Code2 } from "lucide-react";
+import { Boxes, Palette, Layers, FlaskConical, Database, Sparkles, Cloud, LucideIcon } from "lucide-react";
+import { SkillGroup } from "@/data";
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+const icons: Record<string, LucideIcon> = {
+  "TK-01": Boxes,
+  "TK-02": Palette,
+  "TK-03": Layers,
+  "TK-04": FlaskConical,
+  "TK-05": Database,
+  "TK-06": Sparkles,
+  "TK-07": Cloud,
+};
 
-export const TechCard = ({ skillGroup }: { skillGroup: { category: string; items: string[] } }) => {
+// A skill group rendered as a design-token palette: a category header
+// with an id, and the items as monospaced token chips.
+export const TechCard = ({ skillGroup }: { skillGroup: SkillGroup }) => {
+  const Icon = icons[skillGroup.code] ?? Boxes;
   return (
-    <Card className="group relative overflow-hidden transition-all duration-300 border border-purple-900/50 bg-black/40 backdrop-blur-lg hover:bg-black/60 hover:shadow-lg hover:shadow-purple-500/10 min-h-[180px]">
-      {/* Top gradient line animation */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-pink-600 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
-
-      {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/5 to-pink-900/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-      <CardHeader className="pb-3 relative">
-        <div className="flex items-center gap-2">
-          <Code2 className="w-5 h-5 text-purple-400 group-hover:text-purple-300 transition-colors" />
-          <CardTitle className="text-lg font-semibold flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 group-hover:from-purple-300 group-hover:to-pink-300 transition-all">
+    <div className="flex h-full flex-col rounded-lg border border-line bg-paper-raised p-5 transition-colors duration-300 hover:border-amber/40">
+      <div className="flex items-center justify-between gap-2 border-b border-line pb-3">
+        <div className="flex items-center gap-2.5">
+          <Icon className="h-4 w-4 text-amber" />
+          <h3 className="font-display text-[15px] font-semibold tracking-tight text-ink">
             {skillGroup.category}
-          </CardTitle>
+          </h3>
         </div>
-      </CardHeader>
-
-      <CardContent className="relative">
-        <div className="flex flex-wrap gap-2">
-          {skillGroup.items.map((skill, index) => (
-            <Badge
-              key={index}
-              variant="secondary"
-              className="bg-purple-900/30 text-gray-300 hover:bg-purple-900/50 border border-purple-500/30 transition-colors duration-200 px-3 py-1 font-semibold"
-            >
-              {skill}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+        <span className="font-mono text-[11px] tracking-label text-mute">{skillGroup.code}</span>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {skillGroup.items.map((skill) => (
+          <span
+            key={skill}
+            className="rounded border border-line bg-paper px-2.5 py-1 font-mono text-[12px] text-ink-soft transition-colors hover:border-amber/50 hover:text-ink"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 };

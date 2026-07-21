@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
-import React from "react";
 
 type Props = {
   text: string;
-  weight?: "semibold" | "bold";
+  weight?: "medium" | "semibold" | "bold";
   tag?: "span" | "h3";
-  size: "regular" | "lg" | "xl";
+  size?: "regular" | "lg" | "xl";
 };
+
+// Highlighter-marker emphasis on the paper canvas — amber wash, ink text.
 export default function HighlightText({
   text,
   weight = "semibold",
@@ -17,12 +18,12 @@ export default function HighlightText({
   return (
     <Tag
       className={cn(
-        "text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400",
-        `font-${weight}`,
-        {
-          "text-lg": size === "lg",
-          "text-xl": size === "xl",
-        }
+        "box-decoration-clone rounded-[3px] bg-amber-soft px-1 text-ink",
+        weight === "bold" && "font-bold",
+        weight === "semibold" && "font-semibold",
+        weight === "medium" && "font-medium",
+        size === "lg" && "text-lg",
+        size === "xl" && "text-xl"
       )}
     >
       {text}
