@@ -3,12 +3,12 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/section-header";
 import { ProjectCard } from "@/components/project-card";
 import { StateBadge } from "@/components/state-badge";
-import { Reveal } from "@/components/reveal";
+import { ScaleReveal, SlideIn, ScrollReveal, StaggerContainer } from "@/components/scroll-reveal";
+import { TiltCard } from "@/components/tilt-card";
 import { projects, Project } from "@/data";
 
 const href = (p: Project) => (p.link && p.link.length > 0 ? p.link[0] : undefined);
 
-// The story half of a case-study row: headline result, description, stack, CTA.
 function DetailsCard({ p }: { p: Project }) {
   const link = href(p);
   return (
@@ -65,7 +65,6 @@ function DetailsCard({ p }: { p: Project }) {
   );
 }
 
-// The visual half of a case-study row: the recording, clean, with a live tag.
 function MovieTile({ p }: { p: Project }) {
   const link = href(p);
   const Wrapper = link ? "a" : "div";
@@ -89,7 +88,6 @@ function MovieTile({ p }: { p: Project }) {
   );
 }
 
-// One project as a paired row: results card + its recording, alternating sides.
 function CaseStudyRow({ p, flip }: { p: Project; flip?: boolean }) {
   if (!p.src) return <DetailsCard p={p} />;
   return (
@@ -104,7 +102,6 @@ function CaseStudyRow({ p, flip }: { p: Project; flip?: boolean }) {
   );
 }
 
-// Compact text-over-movie tile for recorded projects in the "more work" grid.
 function VideoTile({ p }: { p: Project }) {
   const link = href(p);
   const Wrapper = link ? "a" : "div";
@@ -145,19 +142,25 @@ export function BentoWork() {
   const rest = projects.slice(2);
 
   return (
-    <section id="work" className="scroll-mt-16 border-t border-line py-16">
-      <SectionHeader
-        label="work"
-        code="02"
-        title="Things I've built"
-        description="Platforms and tools I've built, from multi-tenant SaaS to design systems — the live ones play right here."
-      />
+    <section id="work" className="scroll-mt-16 border-t border-line py-16 overflow-x-clip">
+      {/* Section header scales in dramatically */}
+      <ScaleReveal from={0.6}>
+        <SectionHeader
+          label="work"
+          code="02"
+          title="Things I've built"
+          description="Platforms and tools I've built, from multi-tenant SaaS to design systems — the live ones play right here."
+        />
+      </ScaleReveal>
 
+      {/* Featured case studies slide in from alternate sides */}
       <div className="mt-8 space-y-4">
         {featured.map((p, i) => (
-          <Reveal key={p.code}>
-            <CaseStudyRow p={p} flip={i % 2 === 1} />
-          </Reveal>
+          <SlideIn key={p.code} from={i % 2 === 0 ? "left" : "right"} distance={150} rotate={4}>
+            <TiltCard maxTilt={3} glare={false}>
+              <CaseStudyRow p={p} flip={i % 2 === 1} />
+            </TiltCard>
+          </SlideIn>
         ))}
       </div>
 
@@ -166,13 +169,16 @@ export function BentoWork() {
         <span className="h-px flex-1 bg-line" />
       </div>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {rest.map((p, i) => (
-          <Reveal key={p.code} delay={(i % 3) * 0.05} className="h-full">
-            {p.src ? <VideoTile p={p} /> : <ProjectCard {...p} />}
-          </Reveal>
+      {/* More work cards stagger in */}
+      <StaggerContainer className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.12}>
+        {rest.map((p) => (
+          <ScrollReveal key={p.code} className="h-full" y={80}>
+            <TiltCard maxTilt={6}>
+              {p.src ? <VideoTile p={p} /> : <ProjectCard {...p} />}
+            </TiltCard>
+          </ScrollReveal>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }

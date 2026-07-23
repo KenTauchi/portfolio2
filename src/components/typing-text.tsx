@@ -34,7 +34,7 @@ export const TypingText = ({
       opacity: 0.8,
       x: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -43,7 +43,7 @@ export const TypingText = ({
       opacity: 0,
       x: -20,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },

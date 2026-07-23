@@ -4,13 +4,15 @@ import { BentoWork } from "@/components/bento/work";
 import { BentoReviews } from "@/components/bento/reviews";
 import { Stack } from "@/components/sections/stack";
 import { Contact } from "@/components/sections/contact";
+import { MouseSpotlight } from "@/components/mouse-spotlight";
 
 // Bento architecture: mosaic hero + reused catalog sections + masonry reviews.
 export function BentoLayout() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="relative min-h-screen bg-paper text-ink">
+      <MouseSpotlight />
       <BentoTopBar />
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <BentoIdentity />
         <BentoWork />
         <Stack />
