@@ -13,8 +13,17 @@ export default {
         sans: ["var(--font-body)", "ui-sans-serif", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        // showcase (/v3) only — JetBrains Mono for every label and meta line
+        jet: ["var(--font-jet)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
+        // ── showcase (/v3) palette · fixed dark, independent of data-theme ──
+        void: "#050506", // page background
+        coal: "#0b0b0d", // marquee / section bands
+        smoke: "#141417", // cards, preview chrome
+        lime: "#d7fb3a", // primary accent, cursor, progress bar
+        flame: "#ff5c35", // secondary accent, used sparingly
+
         // semantic design-system palette
         paper: {
           DEFAULT: "var(--paper)",
