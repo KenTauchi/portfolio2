@@ -23,7 +23,7 @@ export const heroLines: HeroSegment[][] = [
 export const heroMeta = ["Frontend-dominant", "Full stack", profile.location];
 
 export const heroBlurb =
-  "I live in React, React Native and the last 16ms of a frame — and I'm equally at home in the GraphQL layer, the test suite and the design system that keeps fifty screens speaking the same language.";
+  "I live in React, React Native and the last 16ms of a frame — and I'm equally at home in the state and data layer, the test suite and the design system that keeps fifty screens speaking the same language.";
 
 /* ── marquee ──────────────────────────────────────────────────── */
 
@@ -33,7 +33,7 @@ export const marqueeItems = [
   "Next.js",
   "React Native",
   "Expo",
-  "GraphQL",
+  "TanStack Query",
   "Tailwind",
   "Node",
   "PostgreSQL",

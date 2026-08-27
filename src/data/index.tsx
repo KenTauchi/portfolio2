@@ -104,7 +104,7 @@ const projects: Project[] = [
       "TypeScript",
       "TanStack Query",
       "Zustand",
-      "GraphQL",
+      "Firebase",
       "Design System",
     ],
   },
